@@ -1,0 +1,24 @@
+PROGRAMACION DE CLASES
+-------------------------------------------------
+Clase 1: 18.FEB.23: 
+Clase 2: 25.FEB.23: Practica 1
+Clase 3: 04.MAR.23: Practica 2
+Clase 4: 11.MAR.23: Practica 3
+Clase 5: 18.MAR.23: Practica 4
+Clase 6: 25.MAR.23: Examen Final
+
+
+PRACTICAS CALIFICADAS (PC)
+-------------------------------------------------
+Las practicas se deben subir al classroom en forma grupal.
+Solo un integrante del grupo su la solución.
+
+
+SISTEMA DE CALIFICACIÓN
+-------------------------------------------------
+- 4 Practicas Calificadas
+- 1 Examen Final
+
+
+PP = ( PC1 + PC2 + PC3 + PC4 - MenorPC ) / 3
+PF = ( PP + EF ) / 2
