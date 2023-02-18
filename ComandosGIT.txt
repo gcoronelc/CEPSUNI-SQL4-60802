@@ -21,3 +21,6 @@ git checkout .
 
 git reset --hard
 
+
+
+Gustavo Coronel
