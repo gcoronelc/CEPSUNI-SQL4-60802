@@ -1,4 +1,4 @@
-  ![SQL SERVER INTELIGENCIA DE NEGOCIOS](https://raw.githubusercontent.com/gcoronelc/SQL-SERVER-BI-003/main/img/sql4.png)
+  ![SQL SERVER INTELIGENCIA DE NEGOCIOS](https://raw.githubusercontent.com/gcoronelc/CEPSUNI-SQL4-60802/main/img/portada.png)
 
 # DATOS GENERALES
 
