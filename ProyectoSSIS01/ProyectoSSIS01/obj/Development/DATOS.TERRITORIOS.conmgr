@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DATOS.TERRITORIOS"
+  DTS:DTSID="{4130654F-AB0B-4308-B326-A5B68BFA7193}"
+  DTS:CreationName="FLATFILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="10250"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x0022_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="D:\GITHUB\CEPSUNI\CEPSUNI-SQL4-60802\Clase02-25FEB23\Ejercicio02-ScriptComponent\TERRITORIOS.TXT">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="10"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="IDTERRITORIO"
+          DTS:DTSID="{391568DD-A81F-475E-8172-5FBAD5B8C2F1}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="50"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="TERRITORIO"
+          DTS:DTSID="{339204B7-DE5F-4256-890B-01D61E8A4CD6}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:DataType="2"
+          DTS:TextQualified="True"
+          DTS:ObjectName="IDREGION"
+          DTS:DTSID="{88740BCF-045B-4E96-BAE9-71B308BA4095}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
