@@ -1,0 +1,27 @@
+TRANSFORMACIÓN: MERGE, UNION ALL Y SORT 
+---------------------------------------------------------------------------------------------------
+MERGE combina 2 conjuntos de datos ordenados.
+UNION ALL combina 2 o mas conjuntos de datos y no necesitan estar ordenados.
+Encode para cadena simple es 1252
+
+Ejercicio 1
+---------------------------------------------------------------------------------------------------
+Combinar los clientes y empleados de la base de datos NORTHWIND en una sola tabla de nombre SOCIO.
+Script para crear la tabla SOCIO:
+
+SELECT TOP 0
+	'TIPO DE SOCIO' TIPO,
+	CustomerID   CODIGO,
+	CompanyName  NOMBRE,
+	Address      DIRECCION,
+	City         CIUDAD,
+	Country      PAIS,
+	Phone        TELEFONO
+INTO dbo.SOCIO
+FROM Northwind.dbo.Customers;
+
+
+Ejercicio 2
+---------------------------------------------------------------------------------------------------
+Combinar las tablas proveedores, clientes y empleados de la base de datos NORTHWIND 
+en una sola tabla de nombre SOCIO2.
