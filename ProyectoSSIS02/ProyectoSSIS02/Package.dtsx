@@ -11,12 +11,1194 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{600E36E5-72CB-43CA-8443-7DCD360DB9CD}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{ACDCE009-D977-4AC1-8153-207EB1692337}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR CLIENTES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CF9B3040-A4C2-4C0D-B6C5-3EB3C793CCE5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR CLIENTES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CARGAR CLIENTES\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Tabla1"
+                  synchronousInputId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[FINDSTRING]("USA,FRANCE,GERMANY",[UPPER](#{Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]}),1) &gt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">FINDSTRING("USA,FRANCE,GERMANY",UPPER(Country),1) &gt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla2]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Tabla2"
+                  synchronousInputId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[FINDSTRING]("BRAZIL,UK,SPAIN,MEXICO",[UPPER](#{Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]}),1) &gt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">FINDSTRING("BRAZIL,UK,SPAIN,MEXICO",UPPER(Country),1) &gt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla3]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Tabla3"
+                  synchronousInputId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR CLIENTES\LEER CLIENTES"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="LEER CLIENTES"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR CLIENTES\LEER CLIENTES.Connections[OleDbConnection]"
+                  connectionManagerID="{8FC19395-ABA5-4F0F-8681-C4946FAC416A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Northwind.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      length="30"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      name="ContactName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      length="30"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      name="ContactTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      length="60"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Address]"
+                      name="Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="10"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      length="24"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Fax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      length="24"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Fax]"
+                      name="Fax"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      name="ContactName" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      name="ContactTitle" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      name="Address" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      name="Fax" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR CLIENTES\Tabla1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabla1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Tabla1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR CLIENTES\Tabla1.Connections[OleDbConnection]"
+                  connectionManagerID="{F4E2EDD3-3EB0-4E33-AF34-7B575C586122}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.DBDESTINO.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[ContactName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[ContactTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactTitle"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactTitle]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].Columns[Fax]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Fax"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Fax]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR CLIENTES\Tabla1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR CLIENTES\Tabla2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabla2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Tabla2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR CLIENTES\Tabla2.Connections[OleDbConnection]"
+                  connectionManagerID="{F4E2EDD3-3EB0-4E33-AF34-7B575C586122}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.DBDESTINO.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[ContactName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[ContactTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactTitle"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactTitle]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].Columns[Fax]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Fax"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Fax]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR CLIENTES\Tabla2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CARGAR CLIENTES\Tabla3"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabla3"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Tabla3]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CARGAR CLIENTES\Tabla3.Connections[OleDbConnection]"
+                  connectionManagerID="{F4E2EDD3-3EB0-4E33-AF34-7B575C586122}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.DBDESTINO.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[ContactName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactName"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactName]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[ContactTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactTitle"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[ContactTitle]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].Columns[Fax]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Fax"
+                      externalMetadataColumnId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      lineageId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output].Columns[Fax]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CARGAR CLIENTES\Tabla3.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla3.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CARGAR CLIENTES\Tabla3.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CARGAR CLIENTES\Tabla3.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CARGAR CLIENTES.Paths[OLE DB Source Output]"
+              endId="Package\CARGAR CLIENTES\Conditional Split.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\CARGAR CLIENTES\LEER CLIENTES.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\CARGAR CLIENTES.Paths[Tabla1]"
+              endId="Package\CARGAR CLIENTES\Tabla1.Inputs[OLE DB Destination Input]"
+              name="Tabla1"
+              startId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla1]" />
+            <path
+              refId="Package\CARGAR CLIENTES.Paths[Tabla2]"
+              endId="Package\CARGAR CLIENTES\Tabla2.Inputs[OLE DB Destination Input]"
+              name="Tabla2"
+              startId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla2]" />
+            <path
+              refId="Package\CARGAR CLIENTES.Paths[Tabla3]"
+              endId="Package\CARGAR CLIENTES\Tabla3.Inputs[OLE DB Destination Input]"
+              name="Tabla3"
+              startId="Package\CARGAR CLIENTES\Conditional Split.Outputs[Tabla3]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\CARGAR EMPLEADOS"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2372,7 +3554,7 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F4E2EDD3-3EB0-4E33-AF34-7B575C586122}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE DatosEmpleado;&#xA;TRUNCATE TABLE Ventas01;&#xA;TRUNCATE TABLE Ventas02;&#xA;TRUNCATE TABLE Ventas03;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DatosEmpleado;&#xA;TRUNCATE TABLE Ventas01;&#xA;TRUNCATE TABLE Ventas02;&#xA;TRUNCATE TABLE Ventas03;&#xA;TRUNCATE TABLE Tabla1;&#xA;TRUNCATE TABLE Tabla2;&#xA;TRUNCATE TABLE Tabla3;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2393,6 +3575,14 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\CARGAR VENTAS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F97B2CA-A148-4F40-96F5-581F7CBCEDF6}"
+      DTS:From="Package\LIMPIAR TABLAS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\CARGAR CLIENTES" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2407,39 +3597,47 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="168,41.6"
+          Id="Package\CARGAR CLIENTES"
+          TopLeft="452.04082402474,252.352944715625" />
+        <NodeLayout
           Size="180,41.6"
           Id="Package\CARGAR EMPLEADOS"
-          TopLeft="79.285715635942,236.294120960995" />
+          TopLeft="27.8571433315472,255.411768287936" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\CARGAR VENTAS"
+          TopLeft="255.000004342624,251.260507725514" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\LIMPIAR TABLAS"
           TopLeft="255.714290069074,32.1176475092614" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="334.914290069074,73.7176475092614">
+          TopLeft="281.880003048352,73.7176475092614">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-165.628574433132,162.576473451733"
+              EndConnector="-164.022859716805,181.694120778674"
               Start="0,0"
-              End="-165.628574433132,155.076473451733">
+              End="-164.022859716805,174.194120778674">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.2882367258666" />
+                    End="0,69.7678130361418" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,77.2882367258666"
-                    Point2="0,81.2882367258666"
-                    Point3="-4,81.2882367258666" />
+                    Point1="0,69.7678130361418"
+                    Point2="0,73.7678130361418"
+                    Point3="-4,73.7678130361418" />
                   <mssgle:LineSegment
-                    End="-161.628574433132,81.2882367258666" />
+                    End="-160.022859716805,73.7678130361418" />
                   <mssgle:CubicBezierSegment
-                    Point1="-161.628574433132,81.2882367258666"
-                    Point2="-165.628574433132,81.2882367258666"
-                    Point3="-165.628574433132,85.2882367258666" />
+                    Point1="-160.022859716805,73.7678130361418"
+                    Point2="-164.022859716805,73.7678130361418"
+                    Point3="-164.022859716805,77.7678130361418" />
                   <mssgle:LineSegment
-                    End="-165.628574433132,155.076473451733" />
+                    End="-164.022859716805,174.194120778674" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2448,36 +3646,54 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\CARGAR VENTAS"
-          TopLeft="383.571435103611,237.058826854072" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="359.980956735741,73.7176475092614">
+          TopLeft="335.620956542735,73.7176475092614">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="103.19047836787,163.341179344811"
+              EndConnector="0,177.542860216253"
               Start="0,0"
-              End="103.19047836787,155.841179344811">
+              End="0,170.042860216253">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.3165188139932" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,62.3165188139932"
-                    Point2="0,66.3165188139932"
-                    Point3="4,66.3165188139932" />
+                    End="0,170.042860216253" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="372.514290069074,73.7176475092614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163.526533955666,178.635297206364"
+              Start="0,0"
+              End="163.526533955666,171.135297206364">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="99.1904783678705,66.3165188139932" />
+                    End="0,57.5167910909333" />
                   <mssgle:CubicBezierSegment
-                    Point1="99.1904783678705,66.3165188139932"
-                    Point2="103.19047836787,66.3165188139932"
-                    Point3="103.19047836787,70.3165188139932" />
+                    Point1="0,57.5167910909333"
+                    Point2="0,61.5167910909333"
+                    Point3="4,61.5167910909333" />
                   <mssgle:LineSegment
-                    End="103.19047836787,155.841179344811" />
+                    End="159.526533955666,61.5167910909333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="159.526533955666,61.5167910909333"
+                    Point2="163.526533955666,61.5167910909333"
+                    Point3="163.526533955666,65.5167910909333" />
+                  <mssgle:LineSegment
+                    End="163.526533955666,171.135297206364" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2490,10 +3706,220 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\CARGAR CLIENTES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\CARGAR CLIENTES\Tabla1"
+          TopLeft="292.1428570942,358.46078416358" />
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\CARGAR CLIENTES\Tabla3"
+          TopLeft="869.166666666667,368" />
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\CARGAR CLIENTES\Tabla2"
+          TopLeft="568.333333333333,366.666666666667" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\CARGAR CLIENTES\Conditional Split"
+          TopLeft="564.076923076923,191.538461538462" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\CARGAR CLIENTES\LEER CLIENTES"
+          TopLeft="562,55" />
+        <EdgeLayout
+          Id="Package\CARGAR CLIENTES.Paths[Tabla3]"
+          TopLeft="677.876923076923,233.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="246.089743589744,134.861538461539"
+              Start="0,0"
+              End="246.089743589744,127.361538461539">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4802925427713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.4802925427713"
+                    Point2="0,46.4802925427713"
+                    Point3="4,46.4802925427713" />
+                  <mssgle:LineSegment
+                    End="242.089743589744,46.4802925427713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="242.089743589744,46.4802925427713"
+                    Point2="246.089743589744,46.4802925427713"
+                    Point3="246.089743589744,50.4802925427713" />
+                  <mssgle:LineSegment
+                    End="246.089743589744,127.361538461539" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="107.516141326122,51.4802925427713,31.0574609375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR CLIENTES.Paths[Tabla2]"
+          TopLeft="665.676923076923,233.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.5435897435897,133.528205128205"
+              Start="0,0"
+              End="-42.5435897435897,126.028205128205">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.2329940828403" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.2329940828403"
+                    Point2="0,54.2329940828403"
+                    Point3="-4,54.2329940828403" />
+                  <mssgle:LineSegment
+                    End="-38.5435897435897,54.2329940828403" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.5435897435897,54.2329940828403"
+                    Point2="-42.5435897435897,54.2329940828403"
+                    Point3="-42.5435897435897,58.2329940828403" />
+                  <mssgle:LineSegment
+                    End="-42.5435897435897,126.028205128205" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-36.8640019030449,59.2329940828403,31.1844140625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR CLIENTES.Paths[Tabla1]"
+          TopLeft="604.676923076923,233.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-257.734065982723,125.322322625118"
+              Start="0,0"
+              End="-257.734065982723,117.822322625118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.1925831797945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.1925831797945"
+                    Point2="0,43.1925831797945"
+                    Point3="-4,43.1925831797945" />
+                  <mssgle:LineSegment
+                    End="-253.734065982723,43.1925831797945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-253.734065982723,43.1925831797945"
+                    Point2="-257.734065982723,43.1925831797945"
+                    Point3="-257.734065982723,47.1925831797945" />
+                  <mssgle:LineSegment
+                    End="-257.734065982723,117.822322625118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-144.273693147611,48.1925831797945,30.8133203125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR CLIENTES.Paths[OLE DB Source Output]"
+          TopLeft="639.838461538462,96.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.9384615384616"
+              Start="0,0"
+              End="0,87.4384615384616">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.4384615384616" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR CLIENTES\Tabla3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR CLIENTES\LEER CLIENTES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR CLIENTES\Tabla1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR CLIENTES\Tabla2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\CARGAR EMPLEADOS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\CARGAR EMPLEADOS\OLE DB Source"
@@ -2525,7 +3951,9 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2547,7 +3975,9 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2589,76 +4019,54 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
           Id="Package\CARGAR VENTAS\OLE DB Source"
           TopLeft="368,81" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\CARGAR VENTAS\OLE DB Destination"
-          TopLeft="80.0000000000001,383" />
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\CARGAR VENTAS\Aggregate"
-          TopLeft="372,190" />
-        <NodeLayout
           Size="179.2,41.6"
           Id="Package\CARGAR VENTAS\OLE DB Destination 1"
           TopLeft="360,386" />
         <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\CARGAR VENTAS\OLE DB Destination"
+          TopLeft="80.0000000000001,383" />
+        <NodeLayout
           Size="179.2,41.6"
           Id="Package\CARGAR VENTAS\OLE DB Destination 2"
           TopLeft="672,377" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\CARGAR VENTAS\Aggregate"
+          TopLeft="372,190" />
         <EdgeLayout
-          Id="Package\CARGAR VENTAS.Paths[OLE DB Source Output]"
-          TopLeft="439,122.6">
+          Id="Package\CARGAR VENTAS.Paths[Ventas03]"
+          TopLeft="464.8,231.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67.4"
+              EndConnector="296.8,145.4"
               Start="0,0"
-              End="0,59.9">
+              End="296.8,137.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CARGAR VENTAS.Paths[Ventas01]"
-          TopLeft="391.2,231.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-226,151.4"
-              Start="0,0"
-              End="-226,143.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.7" />
+                    End="0,46.4694214876033" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,71.7"
-                    Point2="0,75.7"
-                    Point3="-4,75.7" />
+                    Point1="0,46.4694214876033"
+                    Point2="0,50.4694214876033"
+                    Point3="4,50.4694214876033" />
                   <mssgle:LineSegment
-                    End="-222,75.7" />
+                    End="292.8,50.4694214876033" />
                   <mssgle:CubicBezierSegment
-                    Point1="-222,75.7"
-                    Point2="-226,75.7"
-                    Point3="-226,79.7" />
+                    Point1="292.8,50.4694214876033"
+                    Point2="296.8,50.4694214876033"
+                    Point3="296.8,54.4694214876033" />
                   <mssgle:LineSegment
-                    End="-226,143.9" />
+                    End="296.8,137.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.00375,80.7,42.0075,9.568359375"
+              BoundingBox="127.2741796875,55.4694214876033,42.251640625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2699,52 +4107,68 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CARGAR VENTAS.Paths[Ventas03]"
-          TopLeft="464.8,231.6">
+          Id="Package\CARGAR VENTAS.Paths[Ventas01]"
+          TopLeft="391.2,231.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="296.8,145.4"
+              EndConnector="-226,151.4"
               Start="0,0"
-              End="296.8,137.9">
+              End="-226,143.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.4694214876033" />
+                    End="0,71.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46.4694214876033"
-                    Point2="0,50.4694214876033"
-                    Point3="4,50.4694214876033" />
+                    Point1="0,71.7"
+                    Point2="0,75.7"
+                    Point3="-4,75.7" />
                   <mssgle:LineSegment
-                    End="292.8,50.4694214876033" />
+                    End="-222,75.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="292.8,50.4694214876033"
-                    Point2="296.8,50.4694214876033"
-                    Point3="296.8,54.4694214876033" />
+                    Point1="-222,75.7"
+                    Point2="-226,75.7"
+                    Point3="-226,79.7" />
                   <mssgle:LineSegment
-                    End="296.8,137.9" />
+                    End="-226,143.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="127.2741796875,55.4694214876033,42.251640625,9.5732421875"
+              BoundingBox="-134.00375,80.7,42.0075,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR VENTAS.Paths[OLE DB Source Output]"
+          TopLeft="439,122.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.4"
+              Start="0,0"
+              End="0,59.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CARGAR VENTAS\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\CARGAR VENTAS\OLE DB Destination">
     <Properties>
@@ -2781,6 +4205,14 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR VENTAS\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
