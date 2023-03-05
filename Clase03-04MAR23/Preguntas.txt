@@ -1,0 +1,5 @@
+¿Cual es el tamaño maximo de una columna de tipo varchar?
+
+
+
+

@@ -1,7 +1,7 @@
 TRANSFORMACIÓN: COLUMNA DERIVADA (DERIVED COLUMN)
 ------------------------------------------------------------------------------------------
-Permite crear nuevas columnas con un valor predeterminado.
-Permite crear nuevas columnas en base a los valores de entrada.
+- Permite crear nuevas columnas con un valor predeterminado.
+- Permite crear nuevas columnas en base a los valores de entrada.
 
 EJEMPLO 03
 ------------------------------------------------------------------------------------------
