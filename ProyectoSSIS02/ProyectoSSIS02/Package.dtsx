@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{5A592ED3-61AE-44B3-BA1A-AF71AC0A6E8C}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{9E8A1710-C3FE-459F-BA00-DEAAF2BDD680}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5526,6 +5526,10 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
           Id="Package\CARGAR EMPLEADOS"
           TopLeft="27.8571433315472,255.411768287936" />
         <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\CARGAR SOCIOS"
+          TopLeft="665.000011324883,253.882356501781" />
+        <NodeLayout
           Size="159.2,41.6"
           Id="Package\CARGAR VENTAS"
           TopLeft="255.000004342624,251.260507725514" />
@@ -5635,10 +5639,6 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\CARGAR SOCIOS"
-          TopLeft="665.000011324883,253.882356501781" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="457.177148525666,72.1882357231061">
@@ -5981,6 +5981,275 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\CARGAR SOCIOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\CARGAR SOCIOS\EMPLEADOS"
+          TopLeft="631,57" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\CARGAR SOCIOS\EMPLEADO TIPO"
+          TopLeft="631,166" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\CARGAR SOCIOS\Merge"
+          TopLeft="440,403" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\CARGAR SOCIOS\CLIENTES"
+          TopLeft="212,62" />
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\CARGAR SOCIOS\SOCIO"
+          TopLeft="443,489" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\CARGAR SOCIOS\Sort"
+          TopLeft="224,271" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\CARGAR SOCIOS\Sort 1"
+          TopLeft="658,274" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\CARGAR SOCIOS\CLIENTE TIPO"
+          TopLeft="198,172" />
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[Merge Output 1]"
+          TopLeft="495.7,444.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.4000000000001"
+              Start="0,0"
+              End="0,36.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[Derived Column Output1]"
+          TopLeft="710.5,207.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.4"
+              Start="0,0"
+              End="0,58.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[Derived Column Output]"
+          TopLeft="272,213.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.4"
+              Start="0,0"
+              End="0,49.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[Sort Output1]"
+          TopLeft="711.2,315.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-201.066666666667,87.3999999999999"
+              Start="0,0"
+              End="-201.066666666667,79.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.6688235294117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.6688235294117"
+                    Point2="0,51.6688235294117"
+                    Point3="-4,51.6688235294117" />
+                  <mssgle:LineSegment
+                    End="-197.066666666667,51.6688235294117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-197.066666666667,51.6688235294117"
+                    Point2="-201.066666666667,51.6688235294117"
+                    Point3="-201.066666666667,55.6688235294117" />
+                  <mssgle:LineSegment
+                    End="-201.066666666667,79.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[Sort Output]"
+          TopLeft="272.8,312.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.8,90.3999999999999"
+              Start="0,0"
+              End="220.8,82.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.2"
+                    Point2="0,54.2"
+                    Point3="4,54.2" />
+                  <mssgle:LineSegment
+                    End="216.8,54.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="216.8,54.2"
+                    Point2="220.8,54.2"
+                    Point3="220.8,58.2" />
+                  <mssgle:LineSegment
+                    End="220.8,82.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[OLE DB Source Output1]"
+          TopLeft="699.4,98.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.4,67.4"
+              Start="0,0"
+              End="10.4,59.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.7"
+                    Point2="0,33.7"
+                    Point3="4,33.7" />
+                  <mssgle:LineSegment
+                    End="6.39999999999998,33.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.39999999999998,33.7"
+                    Point2="10.4,33.7"
+                    Point3="10.4,37.7" />
+                  <mssgle:LineSegment
+                    End="10.4,59.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGAR SOCIOS.Paths[OLE DB Source Output]"
+          TopLeft="273,103.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.4"
+              Start="0,0"
+              End="0,60.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR SOCIOS\EMPLEADOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR SOCIOS\CLIENTES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGAR SOCIOS\SOCIO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\CARGAR VENTAS">
     <LayoutInfo>
       <GraphLayout
@@ -6184,275 +6453,6 @@ join Northwind.dbo.Suppliers s on p.SupplierID = s.SupplierID</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\CARGAR SOCIOS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\CARGAR SOCIOS\CLIENTES"
-          TopLeft="212,62" />
-        <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\CARGAR SOCIOS\EMPLEADOS"
-          TopLeft="631,57" />
-        <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\CARGAR SOCIOS\CLIENTE TIPO"
-          TopLeft="198,172" />
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[OLE DB Source Output]"
-          TopLeft="273,103.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68.4"
-              Start="0,0"
-              End="0,60.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\CARGAR SOCIOS\EMPLEADO TIPO"
-          TopLeft="631,166" />
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[OLE DB Source Output1]"
-          TopLeft="699.4,98.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.4,67.4"
-              Start="0,0"
-              End="10.4,59.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.7"
-                    Point2="0,33.7"
-                    Point3="4,33.7" />
-                  <mssgle:LineSegment
-                    End="6.39999999999998,33.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.39999999999998,33.7"
-                    Point2="10.4,33.7"
-                    Point3="10.4,37.7" />
-                  <mssgle:LineSegment
-                    End="10.4,59.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\CARGAR SOCIOS\Sort"
-          TopLeft="224,271" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\CARGAR SOCIOS\Sort 1"
-          TopLeft="658,274" />
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[Derived Column Output]"
-          TopLeft="272,213.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.4"
-              Start="0,0"
-              End="0,49.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[Derived Column Output1]"
-          TopLeft="710.5,207.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,66.4"
-              Start="0,0"
-              End="0,58.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,58.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107.2,41.6"
-          Id="Package\CARGAR SOCIOS\Merge"
-          TopLeft="440,403" />
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[Sort Output]"
-          TopLeft="272.8,312.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="220.8,90.3999999999999"
-              Start="0,0"
-              End="220.8,82.8999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,50.2"
-                    Point2="0,54.2"
-                    Point3="4,54.2" />
-                  <mssgle:LineSegment
-                    End="216.8,54.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="216.8,54.2"
-                    Point2="220.8,54.2"
-                    Point3="220.8,58.2" />
-                  <mssgle:LineSegment
-                    End="220.8,82.8999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[Sort Output1]"
-          TopLeft="711.2,315.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-201.066666666667,87.3999999999999"
-              Start="0,0"
-              End="-201.066666666667,79.8999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.6688235294117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.6688235294117"
-                    Point2="0,51.6688235294117"
-                    Point3="-4,51.6688235294117" />
-                  <mssgle:LineSegment
-                    End="-197.066666666667,51.6688235294117" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-197.066666666667,51.6688235294117"
-                    Point2="-201.066666666667,51.6688235294117"
-                    Point3="-201.066666666667,55.6688235294117" />
-                  <mssgle:LineSegment
-                    End="-201.066666666667,79.8999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="109.6,41.6"
-          Id="Package\CARGAR SOCIOS\SOCIO"
-          TopLeft="443,489" />
-        <EdgeLayout
-          Id="Package\CARGAR SOCIOS.Paths[Merge Output 1]"
-          TopLeft="495.7,444.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.4000000000001"
-              Start="0,0"
-              End="0,36.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.9000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CARGAR SOCIOS\CLIENTES">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CARGAR SOCIOS\EMPLEADOS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CARGAR SOCIOS\SOCIO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
