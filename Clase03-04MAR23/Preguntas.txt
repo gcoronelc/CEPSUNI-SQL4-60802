@@ -1,5 +1,5 @@
-¿Cual es el tamaño maximo de una columna de tipo varchar?
-
+¿Cuál es el tamaño maximo de una columna de tipo varchar?
+¿Cuál es el tamaño maximo de una columna de tipo nvarchar?
 
 
 

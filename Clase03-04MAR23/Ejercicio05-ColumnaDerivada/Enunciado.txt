@@ -3,7 +3,7 @@ TRANSFORMACIÓN: COLUMNA DERIVADA (DERIVED COLUMN)
 - Permite crear nuevas columnas con un valor predeterminado.
 - Permite crear nuevas columnas en base a los valores de entrada.
 
-EJEMPLO 03
+ENUNCIADO
 ------------------------------------------------------------------------------------------
 Objetivos: 
   - Copiar la tabla Northwind.dbo.Employees

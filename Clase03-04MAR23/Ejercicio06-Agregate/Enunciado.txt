@@ -1,10 +1,10 @@
 TRANSFORMACIÓN: AGGREGATE
 -------------------------------------------------------------------
 
-Tiene funciones agregadas como COUNT, SUM, AVERAGE, MAX y MIN
-Tiene una clausula GROUP BY
-Controla los valores nulos igual que el motor de base de datos.
-Se puede definir varias salidas.
+- Tiene funciones agregadas como COUNT, SUM, AVERAGE, MAX y MIN
+- Tiene una clausula GROUP BY
+- Controla los valores nulos igual que el motor de base de datos.
+- Se puede definir varias salidas.
 
 EJEMPLO
 ------------------------------------------------------
