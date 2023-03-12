@@ -1,0 +1,29 @@
+<AnalysisServicesUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Northwind DM</Id>
+            <Name>Northwind DM</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqLocDiZQK0elR7J061t1iAAAAAAaAAAATgBvAHIAdABoAHcAaQBuAGQAIABEAE0AAAAQZgAAAAEAACAAAADPdJArY5X2e1ppWvvBbPvkmfMnRP0s4NBGRp+xt04P9gAAAAAOgAAAAAIAACAAAADLNdi2jiL6wo3bi4uRsb4xG5t94raLYD+lHkd9ZGSaCBAAAACQjj6U5MwNmYiKzKgS9DnqQAAAAIg/nqxxxbnjK3T4evz3vAoEKaxuD2Gq9Dpptu6h3mSX6jBUY+UOK9Szkg7dN9FaFL5EkXrAnR1XFtyK8jikuGU=</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Northwind DM</Id>
+            <Name>Northwind DM</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqLocDiZQK0elR7J061t1iAAAAAAaAAAATgBvAHIAdABoAHcAaQBuAGQAIABEAE0AAAAQZgAAAAEAACAAAAD58ZBn6HJM9XBG2PZsQCUqnK+nEONqOAPYA6HY8dcVKwAAAAAOgAAAAAIAACAAAABULOSPJJ1r3tdZihbbYPJyl6UeYBCAvTeNJHWv2MVoDhAAAABxfe6KxkhDP+1ZKKWX6p1VQAAAAK+M8UD/coKZrmxIM4POz9FX5xOSoOtIi247+TUDIxTB3xDliNAtOT39cmt4I3drE+jgLt2aeVvmdkXKnTx2ZUU=</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <TargetServer>localhost</TargetServer>
+        <TargetDatabase>CuboNWMarzo2023</TargetDatabase>
+        <StartObject>
+          <ObjectId></ObjectId>
+          <ObjectType>Current</ObjectType>
+        </StartObject>
+      </Options>
+    </Configuration>
+  </Configurations>
+</AnalysisServicesUserConfiguration>

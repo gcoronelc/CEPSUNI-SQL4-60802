@@ -3,7 +3,7 @@ Proyecto SSAS
 1.- Origen de datos a la base de datos dimensional
 2.- Propiedades del proyecto / Implementación 
     Servidor: localhost
-	Base de datos: CubosNW202012
+	Base de datos: CuboNWMarzo2023
 3.- Vista del Origen de datos
 4.- Creación de dimensiones sencillas
 5.- Creación de dimensiones jerarquicas
