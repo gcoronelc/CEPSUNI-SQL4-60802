@@ -6,6 +6,18 @@
     <Name>CuboNWMarzo2023.database</Name>
     <FullPath>CuboNWMarzo2023.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Vista Northwind DM.cube</Name>
+      <FullPath>Vista Northwind DM.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Vista Northwind DM.partitions</Name>
+          <FullPath>Vista Northwind DM.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>DIMEMPLEADO.dim</Name>
@@ -18,6 +30,14 @@
     <ProjectItem>
       <Name>DIMPROVEEDOR.dim</Name>
       <FullPath>DIMPROVEEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIMPRODUCTO.dim</Name>
+      <FullPath>DIMPRODUCTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIMTIEMPO.dim</Name>
+      <FullPath>DIMTIEMPO.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

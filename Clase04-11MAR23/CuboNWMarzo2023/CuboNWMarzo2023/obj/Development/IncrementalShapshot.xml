@@ -47,9 +47,30 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>1M687gOJshvXh5iQlLTmRmYvGYU=11/03/2023 20:37:5911/03/2023 20:33:40</TimeStamp>
+        <TimeStamp>1M687gOJshvXh5iQlLTmRmYvGYU=11/03/2023 20:38:4511/03/2023 20:33:40</TimeStamp>
         <ID>
           <String>DIMPROVEEDOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KetTAftH4pEObUvA3XYi3zZWEM0=11/03/2023 20:55:4111/03/2023 20:48:56</TimeStamp>
+        <ID>
+          <String>DIMPRODUCTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iBPw18Tes+rruu2REQMabN9IZ8I=11/03/2023 21:23:1311/03/2023 20:58:25</TimeStamp>
+        <ID>
+          <String>DIMTIEMPO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>caLRy6Y4k3WlyGn8iv/eoeFPHPM=11/03/2023 21:26:3311/03/2023 21:26:33D6QNLUUOXXLFJ+V6Yl9xM91HQxU=11/03/2023 21:26:3311/03/2023 21:26:33</TimeStamp>
+        <ID>
+          <String>Vista Northwind DM</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -64,5 +85,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2023-03-12T01:38:01.993333Z</LastDeployed>
+  <LastDeployed>2023-03-12T02:27:44.19Z</LastDeployed>
 </DeploymentSnapshot>
