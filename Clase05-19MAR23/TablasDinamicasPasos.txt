@@ -47,7 +47,7 @@ Cantidad vendida por cliente.
 2.- BASE DE DATOS:
 3.- PROYECTO: ProyectoCuboNW20207
 4.- CUBO: CUBONorthWindDM
-5.- Valor: Ventas
+5.- Valor: Unidades
 6.- Fila: Cliente
 7.- Grafico dinamico tipo barra
 8.- Slipcers:
@@ -69,6 +69,10 @@ EJEMPLO 05: Power Pivot
 9.- Insertar grafico independiente
     - Visualizar que el segundo grafico no cambia
 10.- Hacer que los slicer controlen el segundo grafico
+
+
+EJERCICIO 6: Ejercicio libre
+----------------------------------------
 
 
 
