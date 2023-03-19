@@ -1,0 +1,78 @@
+EJEMPLO 01
+--------------------------------------------
+1.- Conexión con SQL
+2.- Tabla dinamica de ventas por producto.
+3.- Valor: Cantidad
+4.- Filtros: Año, Pais
+5.- Fila: Codigo producto, nombre producto 
+6.- Columna: mes, año
+7.- Cambiar de diseño actual y diseño clasico
+
+
+EJEMPLO 02
+------------------------------------------------
+1.- CONEXIÓN CON ANALISIS SERVICE
+    Siempre conexión Windows
+2.- BASE DE DATOS:
+3.- PROYECTO: ProyectoCuboNW2023
+4.- CUBO: CUBONorthWindDM
+5.- Valor Monto
+6.- Criterio: Dimensión Cliente
+7.- Fila: Dimensión Producto
+8.- Columna: Dimensión Fecha
+
+EJEMPLO 03: Grafico dinamico
+--------------------------------------------
+1.- Conexión con SQL: Usar la conexuón a Norwind DM
+2.- Valor: Ventas
+3.- Fila: Mes
+4.- Filtro 1: Año
+5.- Grafico dinamico: Tipo Barra
+6.- Filtro 2: Insertar Segmentación de Datos (Slicer)
+    Tipo de filtro: Pais 
+    Propiedades:
+     - Eliminar Criterios vacios
+     - 2 Columnas
+7.- Filtro 2: Slicer en cascada
+    Tipo de filtro: Cliente 
+    Propiedades:
+     - Eliminar criterios vacios
+     - 3 columnas
+    
+EJEMPLO 04: Grafico dinamico
+--------------------------------------------
+Cantidad vendida por cliente.
+1.- CONEXIÓN CON ANALISIS SERVICE
+    Siempre conexión Windows
+2.- BASE DE DATOS:
+3.- PROYECTO: ProyectoCuboNW20207
+4.- CUBO: CUBONorthWindDM
+5.- Valor: Ventas
+6.- Fila: Cliente
+7.- Grafico dinamico tipo barra
+8.- Slipcers:
+     - Año
+     - Proveedor     
+     - Categoria
+
+
+EJEMPLO 05: Power Pivot
+--------------------------------------------     
+1.- Se trae el modelo dimensional de NW
+2.- Asegurar de que la dimensión fecha sea fecha y no texto
+3.- Luego crear una tabl dinamica
+4.- Valor: ventas
+5.- Filtro: Categoria
+6.- Filas: Año, mes
+7.- Slicer 1: Escala de tiempo (Año)
+8.- Slicer 2: Escala de tiempo (Mes)
+9.- Insertar grafico independiente
+    - Visualizar que el segundo grafico no cambia
+10.- Hacer que los slicer controlen el segundo grafico
+
+
+
+
+
+
+
